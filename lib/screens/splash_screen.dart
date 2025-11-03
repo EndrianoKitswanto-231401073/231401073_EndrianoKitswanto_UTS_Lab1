@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../widgets/background_wrapper.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,49 +24,30 @@ class _SplashScreenState extends State<SplashScreen> {
     final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(
+    body: BackgroundWrapper(
+      child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Game Icon
-            Icon(
-              Icons.sports_esports, // ikon bawaan flutter
-              size: width * 0.28,
-              color: Colors.white,
-            ),
-
+            Icon(Icons.sports_esports, size: width * 0.28, color: Colors.white),
             SizedBox(height: height * 0.03),
-
-            // Title
-            Text(
-              "AniQuess",
-              style: TextStyle(
-                fontSize: width * 0.1,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-
+            Text("AniQuess", style: TextStyle(
+              fontSize: width * 0.1,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            )),
             SizedBox(height: height * 0.025),
-
-            // Loading text
-            Text(
-              "Loading",
-              style: TextStyle(
-                fontSize: width * 0.05,
-                color: Colors.white70,
-              ),
-            ),
-
+            Text("Loading", style: TextStyle(
+              fontSize: width * 0.05,
+              color: Colors.white70,
+            )),
             SizedBox(height: height * 0.015),
-
-            const CircularProgressIndicator(
-              color: Colors.blueAccent,
-            ),
+            const CircularProgressIndicator(color: Colors.blueAccent),
           ],
         ),
       ),
-    );
+    ),
+  );
+
   }
 }
