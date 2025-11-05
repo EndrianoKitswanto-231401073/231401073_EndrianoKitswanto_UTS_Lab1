@@ -3,49 +3,84 @@ import 'package:flutter/material.dart';
 class QuestionCard extends StatelessWidget {
   final String image;
   final String question;
+  final List options;
+  final int answerIndex;
+  final int? selectedIndex;
+  final Function(int) onPressed;
 
   const QuestionCard({
     super.key,
     required this.image,
     required this.question,
+    required this.options,
+    required this.answerIndex,
+    required this.selectedIndex,
+    required this.onPressed,
   });
 
-  @override
-  Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
+  Color? getColor(int index) {
+    if (selectedIndex == null) return null;
+    if (index == answerIndex) return Colors.green;
+    if (index == selectedIndex) return Colors.red;
+    return null;
+  }
 
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: height * 0.02),
-      padding: EdgeInsets.all(width * 0.04),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: Colors.white,
-        ),
-      ),
+ @override
+Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
       child: Column(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.asset(
-              image,
-              width: width * 0.8,
-              height: height * 0.28,
-              fit: BoxFit.cover,
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(image, height: 200, fit: BoxFit.cover),
+                  const SizedBox(height: 20),
+
+                  Text(
+                    question,
+                    style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                    textAlign: TextAlign.center,
+                  ),
+
+                  const SizedBox(height: 20),
+                ],
+              ),
             ),
           ),
 
-          SizedBox(height: height * 0.02),
+          // OPTIONS
+          Flexible(
+            flex: 2,
+            child: Column(
+              children: List.generate(options.length, (index) {
+                final color = getColor(index);
 
-          Text(
-            question,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: width * 0.05,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+                return Flexible(
+                  child: GestureDetector(
+                    onTap: () => onPressed(index),
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(vertical: 8),
+                      height: 60, // ✅ tinggi tombol sama semua
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: color ?? Colors.blueAccent,
+                      ),
+                      child: Text(
+                        options[index],
+                        style: const TextStyle(fontSize: 18, color: Colors.white),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                );
+              }),
             ),
           ),
         ],
