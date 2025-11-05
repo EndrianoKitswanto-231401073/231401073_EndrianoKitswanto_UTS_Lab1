@@ -49,7 +49,7 @@ class _StartScreenState extends State<StartScreen> {
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Colors.white.withOpacity(0.15),
+                  fillColor: Color(0xFF00072D),
                   hintText: "Enter your name...",
                   hintStyle: TextStyle(color: Colors.white70),
                   border: OutlineInputBorder(
