@@ -50,6 +50,15 @@ class _QuestionScreenState extends State<QuestionScreen> {
       ),
       body: Column(
         children: [
+            Text(
+              "Question ${currentIndex + 1}/5",
+              style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color:Colors.white,
+              ),
+            ),
+
           Expanded(
             child: Center(
               child: QuestionCard(

@@ -30,53 +30,57 @@ Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+
           Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(image, height: 200, fit: BoxFit.cover),
-                  const SizedBox(height: 20),
+            flex: 2,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  image,
+                  height: 180, // lebih kecil biar aman
+                  fit: BoxFit.contain,
+                ),
+                const SizedBox(height: 12),
 
-                  Text(
-                    question,
-                    style: const TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                    textAlign: TextAlign.center,
+                Text(
+                  question,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
-
-                  const SizedBox(height: 20),
-                ],
-              ),
+                  textAlign: TextAlign.center,
+                  maxLines: 3, 
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
             ),
           ),
 
-          // OPTIONS
-          Flexible(
+          Expanded(
             flex: 2,
             child: Column(
               children: List.generate(options.length, (index) {
                 final color = getColor(index);
 
-                return Flexible(
-                  child: GestureDetector(
-                    onTap: () => onPressed(index),
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(vertical: 8),
-                      height: 60, // ✅ tinggi tombol sama semua
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: color ?? Colors.blueAccent,
-                      ),
-                      child: Text(
-                        options[index],
-                        style: const TextStyle(fontSize: 18, color: Colors.white),
-                        textAlign: TextAlign.center,
-                      ),
+                return GestureDetector(
+                  onTap: () => onPressed(index),
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    height: 60,
+                    width: double.infinity,
+                  alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: color ?? Colors.blueAccent,
+                    ),
+                    child: Text(
+                      options[index],
+                      style: const TextStyle(fontSize: 18, color: Colors.white),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 );
