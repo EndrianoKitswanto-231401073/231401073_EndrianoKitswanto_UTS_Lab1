@@ -12,6 +12,7 @@ class QuestionScreen extends StatefulWidget {
 
 class _QuestionScreenState extends State<QuestionScreen> {
   int currentIndex = 0;
+  int score = 0;
   int? selectedIndex;
   bool isAnswered = false;
 
@@ -23,6 +24,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
       isAnswered = true;
     });
 
+    if (index == quizData[currentIndex].correctIndex) {
+      score++; 
+    }
     Future.delayed(const Duration(seconds: 3), () {
       if (currentIndex < quizData.length - 1) {
         setState(() {
@@ -31,6 +35,14 @@ class _QuestionScreenState extends State<QuestionScreen> {
           isAnswered = false;
         });
       } else {
+        Navigator.pushReplacementNamed(
+        context,
+        '/result',
+        arguments: {
+          "name": widget.playerName,
+          "score": score,
+        },
+      );
       }
     });
   }
