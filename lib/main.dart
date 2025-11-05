@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/splash_screen.dart';
 import 'screens/start_screen.dart';
+import 'screens/question_screen.dart';
 
 void main() {
   runApp(const AniQuessApp());
@@ -16,7 +17,7 @@ class AniQuessApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       theme: ThemeData(
-        fontFamily: "Orbitron", // nanti diganti Orbitron kalau mau
+        fontFamily: "Orbitron", 
         scaffoldBackgroundColor: Colors.black,
         primarySwatch: Colors.blue,
       ),
@@ -25,7 +26,10 @@ class AniQuessApp extends StatelessWidget {
       routes: {
         '/': (_) => const SplashScreen(),
         '/start': (_) => const StartScreen(),
-        '/quiz': (_) => const Placeholder(), // nanti diganti ke Quiz Screen
+        '/quiz': (context) {
+          final playerName = ModalRoute.of(context)!.settings.arguments as String;
+          return QuestionScreen(playerName: playerName);
+        }, 
       },
     );
   }
