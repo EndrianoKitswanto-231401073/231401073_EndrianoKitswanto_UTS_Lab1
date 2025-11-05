@@ -16,7 +16,7 @@ class AniQuessApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       theme: ThemeData(
-        fontFamily: "Poppins", // nanti diganti Orbitron kalau mau
+        fontFamily: "Orbitron", // nanti diganti Orbitron kalau mau
         scaffoldBackgroundColor: Colors.black,
         primarySwatch: Colors.blue,
       ),
