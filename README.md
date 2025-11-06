@@ -1,25 +1,28 @@
 # uts
 
-Nama : Endriano Kitswanto
-NIM : 231401073
-Lab : 1
+Nama : Endriano Kitswanto <br>
+NIM : 231401073 <br>
+Lab : 1 <br>
 Nama Aplikasi : AniQuess
 
 ## Deskripsi Aplikasi
-AniQuess adalah aplikasi kuis sederhana bertema anime yang dikembangkan menggunakan Flutter.
-Aplikasi ini menampilkan serangkaian pertanyaan dengan gambar pendukung, dan pengguna dapat memilih jawaban yang benar.
-Setiap pertanyaan akan menampilkan hasil benar atau salah secara langsung, serta menampilkan skor akhir di halaman hasil (Result Screen).
+AniQuess adalah aplikasi kuis sederhana bertema anime yang dikembangkan menggunakan Flutter. <br>
+Aplikasi ini menampilkan serangkaian pertanyaan dengan gambar pendukung, dan pengguna dapat memilih jawaban yang benar. <br>
+Setiap pertanyaan akan menampilkan hasil benar atau salah secara langsung, serta menampilkan skor akhir di halaman hasil (Result Screen). <br>
 
 Aplikasi ini menggunakan navigasi antar-halaman, widget reusable, dan state management untuk menyimpan progres kuis tanpa kehilangan data saat berpindah halaman.
 
 ## Credit ke sumber-sumber aset yang digunakan.
-Fonts : https://fonts.google.com/specimen/Orbitron
-Assets : 
-- https://dragonball.fandom.com/wiki/Tournament_of_Power
-- https://onepiece.fandom.com/wiki/Going_Merry
-- https://bleach.fandom.com/id/wiki/Soul_Society
-- https://myheroacademia.fandom.com/wiki/U.A._High_School
-- https://id.pinterest.com/pin/855613629220455326/
+Fonts : https://fonts.google.com/specimen/Orbitron<br>
+Assets : <br>
+
+- https://dragonball.fandom.com/wiki/Tournament_of_Power<br>
+- https://onepiece.fandom.com/wiki/Going_Merry<br>
+- https://bleach.fandom.com/id/wiki/Soul_Society<br>
+- https://myheroacademia.fandom.com/wiki/U.A._High_School<br>
+- https://id.pinterest.com/pin/855613629220455326/<br>
+<br>
+
 Ikon : Bawaan dari Flutter
 
 ## Video Aplikasi dan Screenshot
