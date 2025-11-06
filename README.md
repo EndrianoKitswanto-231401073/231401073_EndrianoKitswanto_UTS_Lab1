@@ -1,16 +1,29 @@
 # uts
 
-A new Flutter project.
+Nama : Endriano Kitswanto
+NIM : 231401073
+Lab : 1
+Nama Aplikasi : AniQuess
 
-## Getting Started
+## Deskripsi Aplikasi
+AniQuess adalah aplikasi kuis sederhana bertema anime yang dikembangkan menggunakan Flutter.
+Aplikasi ini menampilkan serangkaian pertanyaan dengan gambar pendukung, dan pengguna dapat memilih jawaban yang benar.
+Setiap pertanyaan akan menampilkan hasil benar atau salah secara langsung, serta menampilkan skor akhir di halaman hasil (Result Screen).
 
-This project is a starting point for a Flutter application.
+Aplikasi ini menggunakan navigasi antar-halaman, widget reusable, dan state management untuk menyimpan progres kuis tanpa kehilangan data saat berpindah halaman.
 
-A few resources to get you started if this is your first Flutter project:
+## Credit ke sumber-sumber aset yang digunakan.
+Fonts : https://fonts.google.com/specimen/Orbitron
+Assets : 
+- https://dragonball.fandom.com/wiki/Tournament_of_Power
+- https://onepiece.fandom.com/wiki/Going_Merry
+- https://bleach.fandom.com/id/wiki/Soul_Society
+- https://myheroacademia.fandom.com/wiki/U.A._High_School
+- https://id.pinterest.com/pin/855613629220455326/
+Ikon : Bawaan dari Flutter
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Video Aplikasi dan Screenshot
+https://drive.google.com/drive/folders/13KwuWhKAlJLoj5JgrJ3Jh693s-2IsjT0?usp=sharing
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Prototype Aplikasi
+https://www.figma.com/design/ZOUdLkiynnMqBAT1lrw2EL/AniQuess?node-id=0-1&p=f&t=MuMS7BSjGzMGXefW-0
