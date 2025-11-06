@@ -13,45 +13,45 @@ class _StartScreenState extends State<StartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: BackgroundWrapper(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: width * 0.08),
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "Welcome to",
                 style: TextStyle(
-                  fontSize: width * 0.065,
+                  fontSize: screenWidth * 0.065,
                   color: Colors.white70,
                 ),
               ),
 
-              SizedBox(height: height * 0.01),
+              SizedBox(height: screenHeight * 0.01),
 
               Text(
                 "AniQuess",
                 style: TextStyle(
-                  fontSize: width * 0.11,
+                  fontSize: screenWidth * 0.12,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
               ),
 
-              SizedBox(height: height * 0.06),
+              SizedBox(height: screenHeight * 0.06),
 
               TextField(
                 controller: _nameController,
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color(0xFF00072D),
+                  fillColor: const Color(0xFF00072D),
                   hintText: "Enter your name...",
-                  hintStyle: TextStyle(color: Colors.white70),
+                  hintStyle: TextStyle(color: Colors.white70, fontSize: screenWidth * 0.04),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(14),
                     borderSide: BorderSide.none,
@@ -59,13 +59,13 @@ class _StartScreenState extends State<StartScreen> {
                 ),
               ),
 
-              SizedBox(height: height * 0.05),
+              SizedBox(height: screenHeight * 0.05),
 
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: height * 0.02),
+                    padding: EdgeInsets.symmetric(vertical: screenHeight * 0.02),
                     backgroundColor: Colors.blueAccent,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),
@@ -74,7 +74,7 @@ class _StartScreenState extends State<StartScreen> {
                   onPressed: () {
                     if (_nameController.text.trim().isEmpty) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("Please enter your name"))
+                        const SnackBar(content: Text("Please enter your name")),
                       );
                       return;
                     }
@@ -88,7 +88,7 @@ class _StartScreenState extends State<StartScreen> {
                   child: Text(
                     "START",
                     style: TextStyle(
-                      fontSize: width * 0.05,
+                      fontSize: screenWidth * 0.05,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),

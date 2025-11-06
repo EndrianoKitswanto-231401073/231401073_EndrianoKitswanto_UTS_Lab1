@@ -14,59 +14,68 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(screenWidth * 0.06),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 "Well Done!",
                 style: TextStyle(
-                  fontSize: 32,
+                  fontSize: screenWidth * 0.09,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
               ),
-              Text( 
-                playerName,style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                )
-              ),
-              const SizedBox(height: 15),
+
+              SizedBox(height: screenHeight * 0.02),
 
               Text(
-                "$score / 5", // fixed total question 5
-                style: const TextStyle(
-                  fontSize: 26,
+                playerName,
+                style: TextStyle(
+                  fontSize: screenWidth * 0.07,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.blueAccent,
+                ),
+              ),
+
+              SizedBox(height: screenHeight * 0.05),
+
+              Text(
+                "$score / 5",
+                style: TextStyle(
+                  fontSize: screenWidth * 0.12,
                   fontWeight: FontWeight.bold,
                   color: Colors.greenAccent,
                 ),
               ),
 
-              const SizedBox(height: 40),
+              SizedBox(height: screenHeight * 0.08),
 
               ElevatedButton(
                 onPressed: onRestart,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blueAccent,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(14),
                   ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 40,
-                    vertical: 14,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: screenWidth * 0.25,
+                    vertical: screenHeight * 0.02,
                   ),
                 ),
-                child: const Text(
+                child: Text(
                   "Play Again",
                   style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white
+                    fontSize: screenWidth * 0.05,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),

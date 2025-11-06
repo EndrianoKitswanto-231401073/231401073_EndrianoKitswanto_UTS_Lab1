@@ -25,68 +25,69 @@ class QuestionCard extends StatelessWidget {
     return null;
   }
 
- @override
-Widget build(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
+    // Ambil ukuran layar
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.symmetric(
+        horizontal: screenWidth * 0.05,
+        vertical: screenHeight * 0.02,
+      ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          // Gambar responsif
+          Image.asset(
+            image,
+            height: screenHeight * 0.25,
+            fit: BoxFit.contain,
+          ),
+          SizedBox(height: screenHeight * 0.03),
 
-          Expanded(
-            flex: 2,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  image,
-                  height: 180, // lebih kecil biar aman
-                  fit: BoxFit.contain,
+          // Pertanyaan
+          Text(
+            question,
+            style: TextStyle(
+              fontSize: screenWidth * 0.06, // responsif terhadap lebar layar
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: screenHeight * 0.03),
+
+          // Daftar opsi
+          ...List.generate(options.length, (index) {
+            final color = getColor(index);
+
+            return GestureDetector(
+              onTap: () => onPressed(index),
+              child: Container(
+                margin: EdgeInsets.symmetric(vertical: screenHeight * 0.01),
+                padding: EdgeInsets.symmetric(
+                  vertical: screenHeight * 0.02,
+                  horizontal: screenWidth * 0.04,
                 ),
-                const SizedBox(height: 12),
-
-                Text(
-                  question,
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: color ?? Colors.blueAccent,
+                  border: Border.all(color: Colors.black12),
+                ),
+                child: Text(
+                  options[index],
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.045,
                     color: Colors.white,
                   ),
-                  textAlign: TextAlign.center,
-                  maxLines: 3, 
-                  overflow: TextOverflow.ellipsis,
                 ),
-              ],
-            ),
-          ),
-
-          Expanded(
-            flex: 2,
-            child: Column(
-              children: List.generate(options.length, (index) {
-                final color = getColor(index);
-
-                return GestureDetector(
-                  onTap: () => onPressed(index),
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(vertical: 8),
-                    height: 60,
-                    width: double.infinity,
-                  alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: color ?? Colors.blueAccent,
-                    ),
-                    child: Text(
-                      options[index],
-                      style: const TextStyle(fontSize: 18, color: Colors.white),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                );
-              }),
-            ),
-          ),
+              ),
+            );
+          }),
         ],
       ),
     );
